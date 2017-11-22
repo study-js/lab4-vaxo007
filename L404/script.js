@@ -1,21 +1,23 @@
 function calculate(studentsList, studentsName){
     
-        var differentNmames = [];
+        var nameCount = {};
     
        for(var i=0; i < studentsList.length; i++){
-            if(differentNmames.indexOf(studentsList[i].name) == -1){
-                differentNmames.push(studentsList[i].name);
+            if(nameCount[studentsList[i].name]== null){
+                nameCount[studentsList[i].name] = 0;
             }
+
+            nameCount[studentsList[i].name]++;
         }
     
-        return differentNmames;
+        return nameCount;
     }
     
     
     var students = [
         {
             id: 1,
-            name: 'eduard'
+            name: 'gio'
         },
         {
          id: 2,
@@ -29,15 +31,16 @@ function calculate(studentsList, studentsName){
        
           id: 4,
           name: 'Vaxo'
-         },
-         {
-          id: 5,
-          name:'Vipove'
          }
+
+        
     
         
     ];
     
     
     var names = calculate(students);
-    alert (names);
+
+    for(name in names){
+        alert(name + ": " + names[name]);
+    }
